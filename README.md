@@ -21,7 +21,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ### `Resistors calculators`
 
 calculate the value base on the colors
-and here you can see
+and here you can see the method
 
 https://static4.arrow.com/-/media/arrow/images/miscellaneous/h/how-to-read-resistor-color-codes.jpg
 
