@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="resistor" [ngStyle]="{ width: isFiveBand ? '250px' : '200px' }">
+    <div class="band" [style.background-color]="band1Color"></div>
+    <div class="band" [style.background-color]="band2Color"></div>
+    <div class="band" [style.background-color]="band3Color"></div>
+    <div
+      *ngIf="isFiveBand"
+      class="band"
+      [style.background-color]="band4Color"
+    ></div>
+    <div class="band" [style.background-color]="band5Color"></div>
+  </div>
+  <div>
+    <label>Band 1:</label>
+    <select [(ngModel)]="band1Color" (ngModelChange)="calculateResistance()">
+      <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+    </select>
+    <label>Band 2:</label>
+    <select [(ngModel)]="band2Color" (ngModelChange)="calculateResistance()">
+      <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+    </select>
+    <label>Multiplier:</label>
+    <select [(ngModel)]="band3Color" (ngModelChange)="calculateResistance()">
+      <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+    </select>
+    <div *ngIf="isFiveBand">
+      <label>Multiplier 2:</label>
+      <select [(ngModel)]="band4Color" (ngModelChange)="calculateResistance()">
+        <option *ngFor="let color of colors" [value]="color">
+          {{ color }}
+        </option>
+      </select>
+    </div>
+    <label>Tolerance:</label>
+    <select [(ngModel)]="band5Color" (ngModelChange)="calculateResistance()">
+      <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+    </select>
+  </div>
+  <div>
+    <label>Resistor Type:</label>
+    <select [(ngModel)]="isFiveBand" (ngModelChange)="calculateResistance()">
+      <option [value]="false">4-band</option>
+      <option [value]="true">5-band</option>
+    </select>
+  </div>
+
+  <button (click)="onCalculateClick()">Calculate Resistance</button>
+  <div *ngIf="resistorValue">
+    <p>Resistance: {{ resistorValue }}</p>
+  </div>
+</div>
